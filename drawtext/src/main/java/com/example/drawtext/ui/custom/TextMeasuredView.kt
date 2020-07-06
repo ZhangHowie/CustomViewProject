@@ -50,7 +50,7 @@ class TextMeasuredView(ctx: Context, attrs: AttributeSet?) : View(ctx, attrs) {
         //文字相对居中, 适合可变字体
         drawTextRelativeCenter(canvas)
 
-        drawTextInViewTopLeft(canvas)
+//        drawTextInViewTopLeft(canvas)
 
     }
 

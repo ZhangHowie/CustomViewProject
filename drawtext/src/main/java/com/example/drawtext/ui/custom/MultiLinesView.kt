@@ -1,6 +1,7 @@
 package com.example.drawtext.ui.custom
 
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.*
 import android.text.StaticLayout
 import android.text.TextPaint
@@ -23,9 +24,9 @@ class MultiLinesView(ctx: Context, attrs: AttributeSet?) : View(ctx, attrs) {
 
     private val bitmapOffset = 200.toPx()
 
-    private val bitmapWidth = 200.toPx().toInt()
+    private val bitmapWidth = 200.toPx()
 
-    private val bitmap = getAvatarBitmap(bitmapWidth)
+    private val bitmap = getAvatarBitmap(bitmapWidth, resources)
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -158,17 +159,20 @@ class MultiLinesView(ctx: Context, attrs: AttributeSet?) : View(ctx, attrs) {
 
     }
 
-    private fun getAvatarBitmap(width: Int): Bitmap {
-        val options = BitmapFactory.Options()
+    companion object {
+        fun getAvatarBitmap(width: Float, resources: Resources): Bitmap {
+            val options = BitmapFactory.Options()
 
-        options.inJustDecodeBounds = true
-        BitmapFactory.decodeResource(resources, R.drawable.howie_avatar, options)
-        options.inJustDecodeBounds = false
-        options.inDensity = options.outWidth
-        options.inTargetDensity = width
+            options.inJustDecodeBounds = true
+            BitmapFactory.decodeResource(resources, R.drawable.howie_avatar, options)
+            options.inJustDecodeBounds = false
+            options.inDensity = options.outWidth
+            options.inTargetDensity = width.toInt()
 
-        return BitmapFactory.decodeResource(resources, R.drawable.howie_avatar, options)
+            return BitmapFactory.decodeResource(resources, R.drawable.howie_avatar, options)
 
+        }
     }
+
 
 }

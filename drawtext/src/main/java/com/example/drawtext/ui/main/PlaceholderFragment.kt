@@ -20,7 +20,8 @@ class PlaceholderFragment : Fragment() {
 
     private val layoutMap = mapOf(
         Pair(0, R.layout.fragment_custom_text),
-        Pair(1, R.layout.fragment_multi_lines_text)
+        Pair(1, R.layout.fragment_multi_lines_text),
+        Pair(2, R.layout.fragment_canvas)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
