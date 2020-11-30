@@ -1,3 +1,4 @@
+include ':scalableimageview'
 include ':drawtext'
 rootProject.name='CustomViewProject'
 include ':app'
